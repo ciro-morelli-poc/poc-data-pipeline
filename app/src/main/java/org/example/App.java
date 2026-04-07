@@ -17,7 +17,7 @@ import org.example.load.OutputFileLoaderTask;
 import org.example.transform.ExternalApiClient;
 import org.example.transform.ExternalApiClientImpl;
 import org.example.transform.ExternalApiTransformerTask;
-import org.example.transform.RateLimiter;
+import org.example.transform.LinearRateLimiter;
 
 public class App {
 
@@ -48,7 +48,7 @@ public class App {
         // Stage di Trasform
 
         // Gestore del rate limiting
-        RateLimiter rateLimiter = new RateLimiter(50);
+        LinearRateLimiter rateLimiter = new LinearRateLimiter(50);
 
         // Client Api Mock
         ExternalApiClient apiClient = new ExternalApiClientImpl();
