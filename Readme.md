@@ -12,7 +12,10 @@ For more details about the runtime decision and rationale, see the ADRs in /docs
 
 - Multiple rate limiting strategies:
   - **Linear Rate Limiter**: ensures a constant number of requests at regular intervals within each second
-  - **Bucket Rate Limiter**: allows short bursts (spikes) within a second while never exceeding the defined per-second cap
+  - **Token Bucket**: allows short bursts (spikes) within a second while never exceeding the defined per-second cap
+  - **Leaky Bucket**: processes requests at a fixed, constant outflow rate; excess requests overflow and are dropped, ensuring smooth, predictable traffic shapin
+  - **Fixed Window**: counts requests within discrete time windows (e.g., 1 second); simple to implement but allows burstiness at window boundaries
+  - **Sliding Window**: provides a more accurate and fair rate limit by tracking requests over a rolling time interval, reducing boundary‑related spikes 
 - Concurrent request handling
 - Clear separation between interfaces and implementations
 - Manually managed Dependency Injection
