@@ -8,11 +8,21 @@ Spring is not used, although Dependency Injection has been implemented and is ma
 
 ## Features
 
-- Multiple rate limiting strategies
+- Multiple rate limiting strategies:
+  - **Linear Rate Limiter**: ensures a constant number of requests at regular intervals within each second
+  - **Bucket Rate Limiter**: allows short bursts (spikes) within a second while never exceeding the defined per-second cap
 - Concurrent request handling
 - Clear separation between interfaces and implementations
 - Manually managed Dependency Injection
 - Lightweight design without external frameworks
+- **Checkpoint Manager**: enables saving progress and resuming execution after interruption
+
+## Out of Scope (for time constraints)
+
+- Retry mechanism with exponential backoff
+- Circuit breaker for external API calls
+- Idempotency handling
+- Message ordering guarantees
 
 ## Requirements
 
@@ -24,11 +34,11 @@ Spring is not used, although Dependency Injection has been implemented and is ma
 Build the Docker image:
 ```bash
 docker build -t poc-pipeline .
-docker run --rm   -v $(pwd)/input.csv:/poc-data-pipeline/input.csv   -v $(pwd)/output.csv:/poc-data-pipeline/output.csv  poc-pipeline
+docker run --rm \
+  -v $(pwd)/input.csv:/poc-data-pipeline/input.csv \
+  -v $(pwd)/output.csv:/poc-data-pipeline/output.csv \
+  poc-pipeline
 ```
 
-
+## Architecture
 ![diagram](./architecture.svg)
-
-docker build -t poc-pipeline .
-docker run --rm   -v $(pwd)/input.csv:/poc-data-pipeline/input.csv   -v $(pwd)/output.csv:/poc-data-pipeline/output.csv  poc-pipeline
