@@ -2,9 +2,11 @@
 
 ## Overview
 
-A Java application for educational purposes. This proof of concept (POC) demonstrates the effectiveness of various strategies for handling rate limiting when interacting with an external API. It has been developed in Java using the `java.util.concurrent` library, allowing the focus to remain exclusively on the application layer responsible for managing rate limiting.
+This proof of concept (POC) demonstrates the effectiveness of various strategies for handling rate limiting when interacting with an external API. It has been developed in Java using the `java.util.concurrent` library, allowing the focus to remain exclusively on the application layer responsible for managing rate limiting.
 
-Spring is not used, although Dependency Injection has been implemented and is managed manually within the `Main` class. This approach enables the use of interface-based components that remain abstract and decoupled from their concrete implementations.
+Currently Spring is not used, although Dependency Injection has been implemented and is managed manually within the `Main` class. This approach enables the use of interface-based components that remain abstract and decoupled from their concrete implementations.
+
+For more details about the runtime decision and rationale, see the ADRs in /docs/adr.
 
 ## Features
 
